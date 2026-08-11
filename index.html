@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBA Study Library</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Library landing page — specific styles */
+.map-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #2a1a44 50%, var(--crimson) 100%);
+  color: #fff;
+  padding: 70px 40px 60px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.map-hero::before { content:''; position:absolute; top:-60px; left:-60px; width:320px; height:320px; background:rgba(255,255,255,0.03); border-radius:50%; }
+.map-hero::after { content:''; position:absolute; bottom:-80px; right:-80px; width:400px; height:400px; background:rgba(255,255,255,0.03); border-radius:50%; }
+.institution { font-size: 0.85rem; letter-spacing: 2px; opacity: 0.7; text-transform: uppercase; margin-bottom: 12px; }
+.map-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 12px; line-height: 1.1; }
+.map-hero .course-subtitle { font-size: 1.1rem; opacity: 0.85; margin-bottom: 0; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+.year-block { margin-bottom: 44px; }
+h3.sem-title { font-size: 1.05rem; font-weight: 700; color: var(--navy-light); margin: 24px 0 12px; }
+:root[data-theme="dark"] h3.sem-title { color: var(--gold-light); }
+@media (prefers-color-scheme: dark) { h3.sem-title { color: var(--gold-light); } }
+
+.modules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; margin: 16px 0 8px; }
+.module-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: all .25s; text-decoration: none; color: var(--text); display: flex; flex-direction: column; }
+.module-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: var(--crimson); }
+.module-card.coming-soon { opacity: .6; cursor: default; pointer-events: none; }
+.card-header { padding: 20px 20px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 14px; }
+.module-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; color: #fff; flex-shrink: 0; }
+.num-hrm { background: linear-gradient(135deg, #1a2744, #243360); }
+.num-fin { background: linear-gradient(135deg, #1a6b6b, #218080); }
+.num-soon { background: linear-gradient(135deg, #666, #888); }
+.sem-note { font-size: 0.78rem; font-weight: 400; color: var(--text-muted); text-transform: none; letter-spacing: 0; }
+.card-header-text { flex: 1; }
+.card-course-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.card-course-title { font-size: 1.02rem; font-weight: 700; line-height: 1.3; }
+.card-body { padding: 14px 20px 18px; flex: 1; font-size: 0.87rem; color: var(--text-muted); }
+.card-footer { padding: 12px 20px; background: rgba(26,39,68,0.04); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 600; }
+.status-available { background: rgba(34,139,34,0.12); color: #1a7a1a; }
+.status-progress { background: rgba(184,134,11,0.15); color: var(--gold); }
+.status-soon { background: rgba(100,100,100,0.12); color: #666; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <span class="header-brand">
+      <span class="header-logo">MBA</span>
+      <span class="header-title">Study Library</span>
+    </span>
+    <nav class="header-nav">
+      <button onclick="toggleTheme()" class="nav-btn">◑ Theme</button>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <div class="map-hero">
+    <div class="institution">Graduate School of Business</div>
+    <h1>MBA Study Library</h1>
+    <p class="course-subtitle">A complete digital study library, built one course at a time across two academic years — Year 1 core semesters, Year 2 major specialization.</p>
+  </div>
+
+  <div class="year-block">
+    <h2 class="section-title" id="year1">Year 1</h2>
+
+    <h3 class="sem-title">Semester 1 <span class="sem-note">— completed / previous semester</span></h3>
+    <div class="modules-grid">
+      <div class="module-card coming-soon">
+        <div class="card-header">
+          <div class="module-num num-soon">CM</div>
+          <div class="card-header-text">
+            <div class="card-course-label">Semester 1</div>
+            <div class="card-course-title">Contemporary Management</div>
+          </div>
+        </div>
+        <div class="card-body">Course Study Book not yet available.</div>
+        <div class="card-footer"><span class="status-pill status-soon">Planned</span></div>
+      </div>
+      <div class="module-card coming-soon">
+        <div class="card-header">
+          <div class="module-num num-soon">SA</div>
+          <div class="card-header-text">
+            <div class="card-course-label">Semester 1</div>
+            <div class="card-course-title">Statistics Analysis</div>
+          </div>
+        </div>
+        <div class="card-body">Course Study Book not yet available.</div>
+        <div class="card-footer"><span class="status-pill status-soon">Planned</span></div>
+      </div>
+      <div class="module-card coming-soon">
+        <div class="card-header">
+          <div class="module-num num-soon">ME</div>
+          <div class="card-header-text">
+            <div class="card-course-label">Semester 1</div>
+            <div class="card-course-title">Managerial Economics</div>
+          </div>
+        </div>
+        <div class="card-body">Course Study Book not yet available.</div>
+        <div class="card-footer"><span class="status-pill status-soon">Planned</span></div>
+      </div>
+      <div class="module-card coming-soon">
+        <div class="card-header">
+          <div class="module-num num-soon">AF</div>
+          <div class="card-header-text">
+            <div class="card-course-label">Semester 1</div>
+            <div class="card-course-title">Accounting &amp; Financial Reporting</div>
+          </div>
+        </div>
+        <div class="card-body">Course Study Book not yet available.</div>
+        <div class="card-footer"><span class="status-pill status-soon">Planned</span></div>
+      </div>
+    </div>
+
+    <h3 class="sem-title">Semester 2 <span class="sem-note">— current semester</span></h3>
+    <div class="modules-grid">
+      <div class="module-card coming-soon">
+        <div class="card-header">
+          <div class="module-num num-soon">MK</div>
+          <div class="card-header-text">
+            <div class="card-course-label">Semester 2</div>
+            <div class="card-course-title">Marketing Management</div>
+          </div>
+        </div>
+        <div class="card-body">Course Study Book not yet available.</div>
+        <div class="card-footer"><span class="status-pill status-soon">Planned</span></div>
+      </div>
+      <div class="module-card coming-soon">
+        <div class="card-header">
+          <div class="module-num num-soon">OM</div>
+          <div class="card-header-text">
+            <div class="card-course-label">Semester 2</div>
+            <div class="card-course-title">Operations Management</div>
+          </div>
+        </div>
+        <div class="card-body">Course Study Book not yet available.</div>
+        <div class="card-footer"><span class="status-pill status-soon">Planned</span></div>
+      </div>
+      <a class="module-card" href="https://pixelcraft-creator.github.io/HRM-Study-Book/" target="_blank" rel="noopener">
+        <div class="card-header">
+          <div class="module-num num-hrm">HR</div>
+          <div class="card-header-text">
+            <div class="card-course-label">Semester 2</div>
+            <div class="card-course-title">Human Resource Management</div>
+          </div>
+        </div>
+        <div class="card-body">Strategic HRM, job analysis, recruitment &amp; selection, training &amp; development.</div>
+        <div class="card-footer">
+          <span class="status-pill status-available">✓ Available</span>
+          <span class="date-tag">5 modules</span>
+        </div>
+      </a>
+      <div class="module-card" style="cursor:default;">
+        <div class="card-header">
+          <div class="module-num num-fin">FIN</div>
+          <div class="card-header-text">
+            <div class="card-course-label">Semester 2</div>
+            <div class="card-course-title">Managerial Finance</div>
+          </div>
+        </div>
+        <div class="card-body">Financial performance analysis, leverage &amp; planning, time value of money, valuation, risk &amp; cost of capital.</div>
+        <div class="card-footer">
+          <span class="status-pill status-progress">● In progress</span>
+          <span class="date-tag">M12 of 12 · not yet deployed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="year-block">
+    <h2 class="section-title" id="year2">Year 2 — Major / Specialization</h2>
+    <div class="modules-grid">
+      <div class="module-card coming-soon">
+        <div class="card-header">
+          <div class="module-num num-soon">—</div>
+          <div class="card-header-text">
+            <div class="card-course-label">Year 2</div>
+            <div class="card-course-title">Major not yet selected</div>
+          </div>
+        </div>
+        <div class="card-body">Specialization courses will appear here once the major and source material are provided.</div>
+        <div class="card-footer"><span class="status-pill status-soon">Future</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggleTheme() {
+    const root = document.documentElement;
+    const current = root.getAttribute('data-theme');
+    root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    localStorage.setItem('mba-lib-theme', root.getAttribute('data-theme'));
+  }
+  (function() {
+    const saved = localStorage.getItem('mba-lib-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  })();
+</script>
+</body>
+</html>
